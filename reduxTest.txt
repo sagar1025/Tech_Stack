@@ -1,0 +1,34 @@
+redux playground
+https://stephengrider.github.io/JSPlaygrounds/
+
+const reducer = (statetemp = [], action ) => {
+	if(action.type === 'split_string') {
+    return action.payload.split('');
+  }
+  if(action.type === 'append_array') {
+    return [ ...statetemp, action.payload];
+  }
+  return statetemp;
+};
+
+const store = Redux.createStore(reducer);
+
+store.getState();
+
+const action = {
+  type: 'split_string',
+  payload: 'asdf'
+};
+
+store.dispatch(action);
+
+store.getState();
+
+const action2 = {
+  type: 'append_array',
+  payload: 'A'
+};
+
+store.dispatch(action2);
+
+store.getState();
